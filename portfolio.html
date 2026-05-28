@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+
+        body{
+            font-family: Verdana;
+            background-color: beige;
+        }
+
+        .container{
+            width: 80%;
+            margin: auto;
+        }
+
+        h1,h2{
+            text-align: center;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+        }
+
+        th,td{
+            border: 2px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th{
+            background-color: lightblue;
+        }
+
+        img{
+            display: block;
+            margin: auto;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1 id="name"></h1>
+    <img src="Image_santosh.jpg" height="120px" width="120px">
+    <h2>Education</h2>
+    <table id="education">
+        <tr>
+            <th>Qualification</th>
+            <th>Institution</th>
+            <th>Percentage / CGPA</th>
+        </tr>
+    </table>
+
+    <h2>Skills</h2>
+    <table id="skills">
+        <tr>
+            <th>Number</th>
+            <th>Skill Name</th>
+        </tr>
+    </table>
+
+    <h2>Hobbies</h2>
+    <table id="hobbies">
+        <tr>
+            <th>Number</th>
+            <th>Hobby</th>
+        </tr>
+    </table>
+
+    <h2>Contact Details</h2>
+    <table id="contact">
+        <tr>
+            <th>Type</th>
+            <th>Details</th>
+        </tr>
+    </table>
+    </div>
+    <script>
+        let portfolio = {
+            name : "Santosh Kumar Panda",
+            education : [
+                {
+                    qualification : "B.TECH",
+                    institute : "GIETU, GUNUPUR",
+                    marks : "9.24 CGPA"
+                },
+                
+                {
+                    qualification : "CLASS XII",
+                    institute : "JSRC, BALASORE",
+                    marks : "82.22 %"
+                },
+                
+                {
+                    qualification : "CLASS X",
+                    institute : "MMSSVM, BHADRAK",
+                    marks : "83.33 %"
+                }
+            ],
+            skills : [
+                {
+                    number : 1,
+                    skill : "C Programming"
+                },
+                {
+                    number : 2,
+                    skill : "HTML"
+                },
+                {
+                    number : 3,
+                    skill : "CSS"
+                },
+                {
+                    number : 4,
+                    skill : "JavaScript"
+                }
+            ],
+            hobbies : [
+                {
+                    number : 1,
+                    hobby : "Reading Books"
+                },
+                {
+                    number : 2,
+                    hobby : "Listening Music"
+                }
+            ],
+            contact : [
+                {
+                    type : "Phone Number",
+                    details : "7750074461"
+                },
+                {
+                    type : "Email",
+                    details : "pandasantoshkumar2005@gmail.com"
+                },
+                {
+                    type : "LinkedIn",
+                    details : '<a href="https://www.linkedin.com/in/santosh-kumar-panda-b496a8377?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Visit Profile</a>'
+                }
+            ]
+        };
+        document.getElementById('name').innerHTML = portfolio.name;
+        let educationTable = document.getElementById('education');
+        for(let edu of portfolio.education){
+            educationTable.innerHTML += `
+            <tr>
+                    <td>${edu.qualification}</td>
+                    <td>${edu.institute}</td>
+                    <td>${edu.marks}</td>
+            </tr>    
+            `;
+        }
+        let skillsTable = document.getElementById('skills');
+        for(let skill of portfolio.skills){
+             skillsTable.innerHTML += `
+                <tr>
+                    <td>${skill.number}</td>
+                    <td>${skill.skill}</td>
+                </tr>
+                `;
+        }
+        let hobbiesTable = document.getElementById('hobbies');
+        for(hobby of portfolio.hobbies){
+            hobbiesTable.innerHTML += `
+                <tr>
+                    <td>${hobby.number}</td>
+                    <td>${hobby.hobby}</td>
+                </tr>
+                `;
+        }
+        let contactTable = document.getElementById('contact');
+        for(cont of portfolio.contact){
+            contactTable.innerHTML += `
+                <tr>
+                    <td>${cont.type}</td>
+                    <td>${cont.details}</td>
+                </tr>
+                `;
+        }
+    </script>
+ </body>
+ </html>
