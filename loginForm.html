@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <style>
+
+        body{
+            background-color: antiquewhite;
+        }
+
+        .container{
+            width: 350px;
+            margin: 100px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            color: red;
+            text-align: center;
+            text-decoration: underline wavy blue;
+            text-transform: uppercase;
+            font-family: Verdana;
+        }
+
+        .container input{
+            border: 2px solid black;
+            border-radius: 7px;
+            padding: 10px;
+            font-family: Verdana;
+            background-color: lightblue;
+            transition: all 0.4s ease;
+            display: block;
+            margin: 10px auto;
+            width: 90%;
+            box-sizing: border-box;
+        }
+
+        .container input:hover{
+            background-color: lightgreen;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,255,0,0.3);
+        }
+
+        #btn{
+            background-color: lightpink;
+            border-radius: 7px;
+            padding: 12px 30px;
+            font-family: Verdana;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            transition: all 0.4s ease;
+            margin-top: 10px;
+        }
+
+        #btn:hover{
+            border-radius: 50px;
+            background-color: lightgreen;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,255,0,0.4);
+        }
+
+        label{
+            font-weight: bold;
+            color: #333;
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        #errorEmail,
+        #errorPwd{
+            color: red;
+            font-size: 14px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Portfolio Login Form</h1>
+
+        <label for="email">Enter Email</label>
+        <input type="text" id="email" placeholder="Enter your email">
+        <div id="errorEmail"></div>
+
+        <label for="pwd">Enter Your Password</label>
+        <input type="password" placeholder="Enter Your Password" id="pwd">
+        <div id="errorPwd"></div>
+
+        <button id="btn">Login</button>
+
+    </div>
+
+    <script>
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", ()=>{
+            let email = document.getElementById("email").value;
+            let pwd=document.getElementById("pwd").value;
+            let isValid = email.includes("@") && email.includes(".");
+            let form = document.getElementById("form");
+
+            if(email===""){
+                document.getElementById("errorEmail").textContent = "Email must be filled";
+            }
+            else if(!isValid){
+                document.getElementById("errorEmail").textContent = "Please enter a valid email address";
+            }
+            else if(pwd===""){
+                document.getElementById("errorPwd").textContent = "Password must be filled";
+            }
+            else if(pwd.length<4){
+                document.getElementById("errorPwd").textContent = "Password must be at least 4 characters long";
+            }
+            else{
+                window.location.href = "portfolio.html";
+            }
+        });
+    </script>
+
+</body>
+</html>
